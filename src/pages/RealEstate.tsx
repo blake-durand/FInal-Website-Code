@@ -77,20 +77,22 @@ const listings = [
     title: "Azure Coast Estate",
     location: "Malibu, CA",
     price: "$850",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
+    image: "",
     url: "#",
     rating: 5.0,
-    tags: ["Oceanfront", "Luxury"]
+    tags: ["Oceanfront", "Luxury"],
+    comingSoon: true
   },
   {
     id: 3,
     title: "Emerald Forest Cabin",
     location: "Big Bear, CA",
     price: "$320",
-    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1000",
+    image: "",
     url: "#",
     rating: 4.8,
-    tags: ["Mountain", "Hot Tub"]
+    tags: ["Mountain", "Hot Tub"],
+    comingSoon: true
   }
 ];
 
@@ -197,6 +199,12 @@ export const RealEstate = () => {
                           </span>
                         </div>
                       </button>
+                    ) : listing.comingSoon ? (
+                      <div className="w-full h-full bg-[#0A0A0A] flex items-center justify-center border-b border-white/5">
+                        <span className="font-serif italic text-3xl select-none">
+                          Coming <span className="text-white/30">Soon.</span>
+                        </span>
+                      </div>
                     ) : (
                       <img
                         src={listing.image}
