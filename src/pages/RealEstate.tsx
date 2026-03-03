@@ -212,9 +212,6 @@ export const RealEstate = () => {
                         </span>
                       ))}
                     </div>
-                    <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-white text-black text-[10px] font-bold uppercase tracking-widest pointer-events-none">
-                      {listing.price} <span className="text-[8px] font-normal opacity-60">/ night</span>
-                    </div>
                   </div>
 
                   <div className="p-8 relative z-10">
