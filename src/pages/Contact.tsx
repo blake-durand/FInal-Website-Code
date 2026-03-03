@@ -26,7 +26,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-widest text-white/30 mb-2">Email</h4>
-                  <p className="text-lg font-light">hello@blakedurand.com</p>
+                  <p className="text-lg font-light">contact@blakedurand.com</p>
                 </div>
               </div>
 
