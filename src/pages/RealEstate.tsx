@@ -340,11 +340,11 @@ export const RealEstate = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/92 backdrop-blur-md"
             onClick={close}
           >
             {/* Counter */}
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 text-[11px] uppercase tracking-[0.25em] text-white/40 font-mono select-none">
+            <div className="mb-4 text-[11px] uppercase tracking-[0.25em] text-white/40 font-mono select-none">
               {lightboxIndex + 1} / {obsidianPhotos.length}
             </div>
 
@@ -357,10 +357,10 @@ export const RealEstate = () => {
               <X size={20} />
             </button>
 
-            {/* Prev */}
+            {/* Desktop side arrows */}
             <button
               onClick={e => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 md:left-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+              className="hidden md:block absolute left-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
               aria-label="Previous photo"
             >
               <ChevronLeft size={24} />
@@ -370,22 +370,40 @@ export const RealEstate = () => {
             <motion.img
               key={lightboxIndex}
               src={full(obsidianPhotos[lightboxIndex])}
-              alt={`The Obsidian Villa photo ${lightboxIndex + 1}`}
+              alt={`Dee's Maui Retreat photo ${lightboxIndex + 1}`}
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2 }}
-              className="max-w-[calc(100vw-120px)] max-h-[calc(100vh-100px)] object-contain rounded-lg shadow-2xl"
+              className="w-[calc(100vw-32px)] md:max-w-[calc(100vw-120px)] max-h-[calc(100vh-160px)] object-contain rounded-lg shadow-2xl"
               onClick={e => e.stopPropagation()}
             />
 
-            {/* Next */}
+            {/* Desktop side arrow */}
             <button
               onClick={e => { e.stopPropagation(); next(); }}
-              className="absolute right-4 md:right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+              className="hidden md:block absolute right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
               aria-label="Next photo"
             >
               <ChevronRight size={24} />
             </button>
+
+            {/* Mobile bottom arrows */}
+            <div className="flex md:hidden items-center gap-8 mt-6" onClick={e => e.stopPropagation()}>
+              <button
+                onClick={prev}
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={next}
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+                aria-label="Next photo"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
