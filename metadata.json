@@ -1,0 +1,7 @@
+{
+  "name": "Blake Durand",
+  "description": "Personal website for Blake Durand - Realtor, Property Manager, and Media Producer. Specializing in high-end marketing and short-term rental management.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
