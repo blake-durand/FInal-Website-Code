@@ -64,7 +64,7 @@ const full  = (url: string) => url.replace('/upload/', '/upload/w_2400,q_auto,f_
 const listings = [
   {
     id: 1,
-    title: "The Obsidian Villa",
+    title: "Dee's Maui Retreat",
     location: "Maui, HI",
     price: "$450",
     image: thumb(obsidianPhotos[0]),
