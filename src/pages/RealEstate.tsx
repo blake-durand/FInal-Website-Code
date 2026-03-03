@@ -69,8 +69,8 @@ const listings = [
     price: "$450",
     image: thumb(obsidianPhotos[0]),
     url: "https://www.airbnb.com/rooms/1551894246856716785?guests=1&adults=1&s=67&unique_share_id=5a61a815-d946-43cc-890a-6809b2c2c4ee",
-    rating: 4.9,
-    tags: ["Ocean View", "Resort"]
+    rating: 5.0,
+    tags: ["Minutes Walk to Beach", "Updated"]
   },
   {
     id: 2,
