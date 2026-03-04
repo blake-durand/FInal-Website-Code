@@ -2,6 +2,45 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
+// All 34 Cloudinary photos for 2988 Solimar Beach, sorted 1–34
+const mountainRetreatPhotos = [
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659686/1_l3rttn.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659686/2_ubz5cq.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659719/3_oixyjw.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659698/4_tysmg7.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659710/5_m6bqoe.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659712/6_dklycg.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659718/7_os51iu.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659708/8_baovpi.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659731/9_zwscn8.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659742/10_oh84zz.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659745/11_iweetb.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659747/12_navdlc.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659751/13_qbdrjp.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659749/14_iksogz.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659766/15_j0q7fo.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659768/16_j5hrtx.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659780/17_ipyb4s.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659782/18_hwmlk0.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659775/19_amitjs.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659785/20_pp0rsz.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659801/21_eyarw8.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659787/22_v4vcxn.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659799/23_ttlihg.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659821/24_ggpirh.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659828/25_ffz8sk.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659796/26_un1fwp.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659822/27_izajfs.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659838/28_q7zs4m.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659826/29_vla5o0.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659812/30_fdyxya.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659819/31_mxfvot.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659841/32_grbmoz.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659838/33_zv3siu.jpg",
+  "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659825/34_m2f5hc.jpg",
+];
+
+// All 50 Cloudinary photos for Kihei Akahi C417, sorted 1–50
 const glassHousePhotos = [
   "https://res.cloudinary.com/dsekw4xln/image/upload/v1772577867/1_kuvgei.jpg",
   "https://res.cloudinary.com/dsekw4xln/image/upload/v1772577878/2_tjoun7.jpg",
@@ -68,8 +107,8 @@ const portfolio = [
   {
     title: "Mountain Retreat",
     category: "Airbnb Management",
-    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1000",
-    photos: null,
+    image: thumb(mountainRetreatPhotos[0]),
+    photos: mountainRetreatPhotos,
   },
   {
     title: "Urban Loft",
@@ -80,14 +119,20 @@ const portfolio = [
 ];
 
 export const Portfolio = () => {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [activePhotos, setActivePhotos] = useState<string[] | null>(null);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
-  const close = useCallback(() => setLightboxIndex(null), []);
-  const prev  = useCallback(() => setLightboxIndex(i => i !== null ? (i - 1 + glassHousePhotos.length) % glassHousePhotos.length : null), []);
-  const next  = useCallback(() => setLightboxIndex(i => i !== null ? (i + 1) % glassHousePhotos.length : null), []);
+  const openGallery = (photos: string[]) => {
+    setActivePhotos(photos);
+    setPhotoIndex(0);
+  };
+
+  const close = useCallback(() => setActivePhotos(null), []);
+  const prev  = useCallback(() => setPhotoIndex(i => activePhotos ? (i - 1 + activePhotos.length) % activePhotos.length : 0), [activePhotos]);
+  const next  = useCallback(() => setPhotoIndex(i => activePhotos ? (i + 1) % activePhotos.length : 0), [activePhotos]);
 
   useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (!activePhotos) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape')     close();
       if (e.key === 'ArrowLeft')  prev();
@@ -99,7 +144,7 @@ export const Portfolio = () => {
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
-  }, [lightboxIndex, close, prev, next]);
+  }, [activePhotos, close, prev, next]);
 
   return (
     <section className="py-12 md:py-20 px-6">
@@ -115,43 +160,39 @@ export const Portfolio = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {portfolio.map((item, index) => (
+          {portfolio.map((item, idx) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer"
+              transition={{ delay: idx * 0.1 }}
+              className="group"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6">
-                {item.photos ? (
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 cursor-pointer">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+
+                {/* Overlay — always present, pointer-events-none so clicks reach the button */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none flex items-end justify-start p-4">
+                  {item.photos && (
+                    <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[9px] uppercase tracking-widest text-white/90 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Images size={11} /> View {item.photos.length} Photos
+                    </span>
+                  )}
+                </div>
+
+                {/* Invisible click target on top */}
+                {item.photos && (
                   <button
-                    onClick={() => setLightboxIndex(0)}
-                    className="w-full h-full block"
-                    aria-label="View all photos"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-end justify-start p-4">
-                      <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[9px] uppercase tracking-widest text-white/90 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Images size={11} /> View {item.photos.length} Photos
-                      </span>
-                    </div>
-                  </button>
-                ) : (
-                  <>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
-                  </>
+                    onClick={() => openGallery(item.photos!)}
+                    className="absolute inset-0 z-10"
+                    aria-label={`View all ${item.photos.length} photos`}
+                  />
                 )}
               </div>
               <h3 className="text-xl font-serif italic mb-1">{item.title}</h3>
@@ -163,7 +204,7 @@ export const Portfolio = () => {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {lightboxIndex !== null && (
+        {activePhotos && (
           <motion.div
             key="lightbox"
             initial={{ opacity: 0 }}
@@ -175,7 +216,7 @@ export const Portfolio = () => {
           >
             {/* Counter */}
             <div className="mb-4 text-[11px] uppercase tracking-[0.25em] text-white/40 font-mono select-none">
-              {lightboxIndex + 1} / {glassHousePhotos.length}
+              {photoIndex + 1} / {activePhotos.length}
             </div>
 
             {/* Close */}
@@ -198,9 +239,9 @@ export const Portfolio = () => {
 
             {/* Image */}
             <motion.img
-              key={lightboxIndex}
-              src={full(glassHousePhotos[lightboxIndex])}
-              alt={`The Glass House photo ${lightboxIndex + 1}`}
+              key={photoIndex}
+              src={full(activePhotos[photoIndex])}
+              alt={`Photo ${photoIndex + 1}`}
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2 }}
