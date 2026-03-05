@@ -105,8 +105,8 @@ const portfolio = [
     photos: glassHousePhotos,
   },
   {
-    title: "Mountain Retreat",
-    category: "Airbnb Management",
+    title: "Solimar Beachfront Home",
+    category: "Real Estate",
     image: thumb(mountainRetreatPhotos[0]),
     photos: mountainRetreatPhotos,
   },
