@@ -84,6 +84,12 @@ export const Shop = () => {
                     <ShoppingBag size={18} />
                   </div>
                 </div>
+                {/* Coming Soon Overlay — inside image container so it clips correctly */}
+                {!unlocked && (
+                  <div className="absolute inset-0 backdrop-blur-sm bg-black/40 flex items-center justify-center">
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-white/60">Coming Soon</span>
+                  </div>
+                )}
               </div>
               <div className="flex justify-between items-end">
                 <div>
@@ -94,16 +100,6 @@ export const Shop = () => {
                   <ArrowRight size={16} />
                 </button>
               </div>
-
-              {/* Coming Soon Overlay */}
-              {!unlocked && (
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 backdrop-blur-sm bg-black/40 rounded-2xl" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-white/50">Coming Soon</span>
-                  </div>
-                </div>
-              )}
             </motion.div>
           ))}
         </div>
