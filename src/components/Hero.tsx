@@ -11,7 +11,7 @@ export const Hero = () => {
         <img
           src="/hero.jpg"
           alt="Ocean landscape"
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-50 animate-cloud-drift"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-[#0A0A0A]" />
