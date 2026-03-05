@@ -30,13 +30,3 @@
 .animate-border-beam {
   animation: border-beam 4s linear infinite;
 }
-
-@keyframes cloud-drift {
-  0%   { transform: scale(1.08) translateX(0%); }
-  50%  { transform: scale(1.08) translateX(-3%); }
-  100% { transform: scale(1.08) translateX(0%); }
-}
-
-.animate-cloud-drift {
-  animation: cloud-drift 60s ease-in-out infinite;
-}
