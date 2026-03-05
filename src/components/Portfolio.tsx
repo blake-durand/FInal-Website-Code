@@ -99,8 +99,8 @@ const full  = (url: string) => url.replace('/upload/', '/upload/w_2400,q_auto,f_
 
 const portfolio = [
   {
-    title: "The Glass House",
-    category: "Real Estate",
+    title: "Dee's Maui Retreat",
+    category: "Property Management",
     image: thumb(glassHousePhotos[0]),
     photos: glassHousePhotos,
   },
