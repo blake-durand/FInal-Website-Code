@@ -91,15 +91,17 @@ export const Shop = () => {
                   </div>
                 )}
               </div>
-              <div className="flex justify-between items-end">
-                <div>
-                  <h3 className="text-xl font-serif italic mb-1">{product.name}</h3>
-                  <p className="text-lg font-light text-white/60">{product.price}</p>
+              {unlocked && (
+                <div className="flex justify-between items-end">
+                  <div>
+                    <h3 className="text-xl font-serif italic mb-1">{product.name}</h3>
+                    <p className="text-lg font-light text-white/60">{product.price}</p>
+                  </div>
+                  <button className="p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all">
+                    <ArrowRight size={16} />
+                  </button>
                 </div>
-                <button className="p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all">
-                  <ArrowRight size={16} />
-                </button>
-              </div>
+              )}
             </motion.div>
           ))}
         </div>
