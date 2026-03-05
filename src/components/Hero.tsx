@@ -9,8 +9,8 @@ export const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070"
-          alt="Mountain landscape"
+          src="/hero.jpg"
+          alt="Ocean landscape"
           className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
         />
