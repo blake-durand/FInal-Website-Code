@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
+const THOMAS_VIDEO = "https://res.cloudinary.com/dsekw4xln/video/upload/v1772921433/Thomas-Website-compressed.mp4";
+
 // All 34 Cloudinary photos for 2988 Solimar Beach, sorted 1–34
 const mountainRetreatPhotos = [
   "https://res.cloudinary.com/dsekw4xln/image/upload/v1772659686/1_l3rttn.jpg",
@@ -111,16 +113,18 @@ const portfolio = [
     photos: mountainRetreatPhotos,
   },
   {
-    title: "Urban Loft",
+    title: "Thomas DeLauer",
     category: "Media Production",
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1000",
+    image: null,
     photos: null,
+    videoUrl: THOMAS_VIDEO,
   }
 ];
 
 export const Portfolio = () => {
   const [activePhotos, setActivePhotos] = useState<string[] | null>(null);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const openGallery = (photos: string[]) => {
     setActivePhotos(photos);
@@ -169,15 +173,29 @@ export const Portfolio = () => {
               transition={{ delay: idx * 0.1 }}
               className="group"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 cursor-pointer">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
+              <div
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 cursor-pointer"
+                onClick={item.videoUrl ? () => setActiveVideo(item.videoUrl!) : undefined}
+              >
+                {item.videoUrl ? (
+                  <video
+                    src={item.videoUrl}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <img
+                    src={item.image!}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
 
-                {/* Overlay — always present, pointer-events-none so clicks reach the button */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none flex items-end justify-start p-4">
                   {item.photos && (
                     <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[9px] uppercase tracking-widest text-white/90 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -186,7 +204,7 @@ export const Portfolio = () => {
                   )}
                 </div>
 
-                {/* Invisible click target on top */}
+                {/* Invisible click target for photo gallery */}
                 {item.photos && (
                   <button
                     onClick={() => openGallery(item.photos!)}
@@ -201,6 +219,33 @@ export const Portfolio = () => {
           ))}
         </div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            onClick={() => setActiveVideo(null)}
+          >
+            <button
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
+              onClick={() => setActiveVideo(null)}
+            >
+              <X size={18} />
+            </button>
+            <video
+              src={activeVideo}
+              controls
+              autoPlay
+              className="max-h-[85vh] max-w-[90vw] rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Lightbox */}
       <AnimatePresence>
