@@ -230,10 +230,12 @@ export const RealEstate = () => {
                           <MapPin size={10} /> {listing.location}
                         </div>
                       </div>
-                      <div className="flex items-center gap-1 text-white/60 text-xs">
-                        <Star size={12} className="text-brand-gold fill-brand-gold" />
-                        {listing.rating}
-                      </div>
+                      {!listing.comingSoon && (
+                        <div className="flex items-center gap-1 text-white/60 text-xs">
+                          <Star size={12} className="text-brand-gold fill-brand-gold" />
+                          {listing.rating}
+                        </div>
+                      )}
                     </div>
 
                     <a
