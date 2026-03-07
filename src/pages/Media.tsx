@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Camera, Video, Film, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Camera, Video, Film, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const deeMauiPhotos = [
   "https://res.cloudinary.com/dsekw4xln/image/upload/v1772577867/1_kuvgei.jpg",
@@ -178,14 +178,9 @@ export const Media = () => {
                 />
               )}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex flex-col justify-end p-8">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest text-white/60 mb-2 block">{work.type}</span>
-                    <h3 className="text-2xl font-serif italic">{work.title}</h3>
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                    <Play size={16} fill="currentColor" />
-                  </div>
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest text-white/60 mb-2 block">{work.type}</span>
+                  <h3 className="text-2xl font-serif italic">{work.title}</h3>
                 </div>
               </div>
             </motion.div>
