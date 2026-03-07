@@ -59,7 +59,7 @@ const mediaWork = [
   {
     title: "Luxury Estate Tour",
     type: "Cinematography",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1000",
+    image: "https://res.cloudinary.com/dsekw4xln/image/upload/v1772577867/1_kuvgei.jpg",
     hasGallery: true,
   },
   {
