@@ -179,8 +179,8 @@ export const Media = () => {
               )}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex flex-col justify-end p-8">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-white/60 mb-2 block">{work.type}</span>
-                  <h3 className="text-2xl font-serif italic">{work.title}</h3>
+                  <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/60 mb-1 md:mb-2 block">{work.type}</span>
+                  <h3 className="text-sm md:text-2xl font-serif italic">{work.title}</h3>
                 </div>
               </div>
             </motion.div>
