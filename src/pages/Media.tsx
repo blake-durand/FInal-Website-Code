@@ -160,12 +160,23 @@ export const Media = () => {
               className="group relative aspect-video rounded-3xl overflow-hidden cursor-pointer"
               onClick={work.hasGallery ? openGallery : work.videoUrl ? () => openVideo(work.videoUrl!) : undefined}
             >
-              <img
-                src={work.image}
-                alt={work.title}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
+              {work.videoUrl ? (
+                <video
+                  src={work.videoUrl}
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+              ) : (
+                <img
+                  src={work.image}
+                  alt={work.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+              )}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex flex-col justify-end p-8">
                 <div className="flex justify-between items-end">
                   <div>
