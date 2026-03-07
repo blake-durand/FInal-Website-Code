@@ -64,7 +64,7 @@ const mediaWork = [
     videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772862324/A-Cam-Take2-compressed_uvmgsm.mp4",
   },
   {
-    title: "Lifestyle Campaign",
+    title: "Thomas DeLauer",
     type: "Promotions",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000",
     hasGallery: false,
