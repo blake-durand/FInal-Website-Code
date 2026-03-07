@@ -57,8 +57,8 @@ const deeMauiPhotos = [
 
 const mediaWork = [
   {
-    title: "Luxury Estate Tour",
-    type: "Cinematography",
+    title: "Kihei, Maui",
+    type: "Photography",
     image: "https://res.cloudinary.com/dsekw4xln/image/upload/v1772577867/1_kuvgei.jpg",
     hasGallery: true,
   },
