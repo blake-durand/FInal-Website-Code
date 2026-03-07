@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const THOMAS_VIDEO = "https://res.cloudinary.com/dsekw4xln/video/upload/v1772921433/Thomas-Website-compressed.mp4";
@@ -158,9 +159,9 @@ export const Portfolio = () => {
             <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-4 block">Proof of Work</span>
             <h2 className="text-3xl md:text-6xl font-serif italic">Selected <span className="text-white/40">Portfolio.</span></h2>
           </div>
-          <button className="text-xs uppercase tracking-widest font-bold text-white/60 hover:text-white transition-colors border-b border-white/20 pb-2">
+          <Link to="/media" className="text-xs uppercase tracking-widest font-bold text-white/60 hover:text-white transition-colors border-b border-white/20 pb-2">
             View All Work
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
