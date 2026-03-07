@@ -71,9 +71,10 @@ const mediaWork = [
   },
   {
     title: "Lifestyle Campaign",
-    type: "Photography",
+    type: "Promotions",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000",
     hasGallery: false,
+    videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772921433/Thomas-Website-compressed.mp4",
   },
   {
     title: "Modern Interior Series",
