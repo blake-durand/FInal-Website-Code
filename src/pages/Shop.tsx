@@ -119,14 +119,6 @@ export const Shop = () => {
           </div>
         )}
 
-        <div className="mt-32 p-12 rounded-3xl bg-white/[0.02] border border-white/10 text-center">
-          <h2 className="text-3xl font-serif italic mb-6">Looking for custom solutions?</h2>
-          <p className="text-white/40 mb-8 max-w-lg mx-auto">I offer personalized consulting for real estate marketing and property management systems.</p>
-          <Link to="/contact" className="group relative inline-block px-8 py-4 rounded-full bg-white text-black font-bold uppercase tracking-widest text-xs overflow-hidden">
-            <BorderBeam className="opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative z-10">Book a Consultation</span>
-          </Link>
-        </div>
       </div>
 
       {/* Password Modal */}
