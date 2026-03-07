@@ -135,7 +135,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-widest text-white/30 mb-2">Phone</h4>
-                  <p className="text-lg font-light">+1 (555) 000-0000</p>
+                  <p className="text-lg font-light">(805) 242-2191</p>
                 </div>
               </div>
 
