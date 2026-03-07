@@ -67,6 +67,7 @@ const mediaWork = [
     type: "Commercial",
     image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1000",
     hasGallery: false,
+    videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772862324/A-Cam-Take2-compressed_uvmgsm.mp4",
   },
   {
     title: "Lifestyle Campaign",
@@ -85,6 +86,8 @@ const mediaWork = [
 export const Media = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (!galleryOpen) return;
@@ -100,6 +103,16 @@ export const Media = () => {
   const openGallery = () => {
     setCurrentPhoto(0);
     setGalleryOpen(true);
+  };
+
+  const openVideo = (url: string) => {
+    setActiveVideoUrl(url);
+    setVideoOpen(true);
+  };
+
+  const closeVideo = () => {
+    setVideoOpen(false);
+    setActiveVideoUrl(null);
   };
 
   return (
@@ -145,7 +158,7 @@ export const Media = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="group relative aspect-video rounded-3xl overflow-hidden cursor-pointer"
-              onClick={work.hasGallery ? openGallery : undefined}
+              onClick={work.hasGallery ? openGallery : work.videoUrl ? () => openVideo(work.videoUrl!) : undefined}
             >
               <img
                 src={work.image}
@@ -168,6 +181,33 @@ export const Media = () => {
           ))}
         </div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoOpen && activeVideoUrl && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            onClick={closeVideo}
+          >
+            <button
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
+              onClick={closeVideo}
+            >
+              <X size={18} />
+            </button>
+            <video
+              src={activeVideoUrl}
+              controls
+              autoPlay
+              className="max-h-[85vh] max-w-[90vw] rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Lightbox Gallery */}
       <AnimatePresence>
