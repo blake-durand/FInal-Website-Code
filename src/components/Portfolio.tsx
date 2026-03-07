@@ -107,17 +107,17 @@ const portfolio = [
     photos: glassHousePhotos,
   },
   {
-    title: "Solimar Beachfront Home",
-    category: "Real Estate",
-    image: thumb(mountainRetreatPhotos[0]),
-    photos: mountainRetreatPhotos,
-  },
-  {
     title: "Thomas DeLauer",
     category: "Media Production",
     image: null,
     photos: null,
     videoUrl: THOMAS_VIDEO,
+  },
+  {
+    title: "Solimar Beachfront Home",
+    category: "Real Estate",
+    image: thumb(mountainRetreatPhotos[0]),
+    photos: mountainRetreatPhotos,
   }
 ];
 
