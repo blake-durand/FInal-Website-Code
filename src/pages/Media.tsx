@@ -57,18 +57,18 @@ const deeMauiPhotos = [
 
 const mediaWork = [
   {
-    title: "Lifestyle Campaign",
-    type: "Promotions",
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000",
-    hasGallery: false,
-    videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772921433/Thomas-Website-compressed.mp4",
-  },
-  {
     title: "Draft Kings | Courtney \"Big Court\" Richardson",
     type: "Promotions",
     image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1000",
     hasGallery: false,
     videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772862324/A-Cam-Take2-compressed_uvmgsm.mp4",
+  },
+  {
+    title: "Lifestyle Campaign",
+    type: "Promotions",
+    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000",
+    hasGallery: false,
+    videoUrl: "https://res.cloudinary.com/dsekw4xln/video/upload/v1772921433/Thomas-Website-compressed.mp4",
   },
   {
     title: "Kihei, Maui",
