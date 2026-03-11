@@ -6,9 +6,9 @@ const REVIEWS = [
   {
     id: 0,
     title: "Perfect Maui Escape",
-    text: "Absolutely incredible property. Blake was the perfect host — responsive, thoughtful, and genuinely cared about our experience. The views were breathtaking and the space was immaculate.",
-    author: "Sarah M.",
-    date: "January 2025",
+    text: "The place we amazing - had all the amenities listed and more (beach chairs, sand castle materials, towels, etc.) Blake was an amazing, responsive host. I communicated that my bf has light sensitivity and Blake proactively installed blinds in the bedroom for us. We'll be coming back here when we visit Maui again :).",
+    author: "May.",
+    date: "February 2026",
     initials: "SM",
     color: "#6366f1",
   },
