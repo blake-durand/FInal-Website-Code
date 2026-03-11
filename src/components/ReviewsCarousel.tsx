@@ -143,10 +143,22 @@ export const ReviewsCarousel = () => {
       el.style.zIndex = String(zIndex);
     });
 
-    // Update progress dashes when active review changes
+    // Update progress dashes + card highlight when active review changes
     const activeIndex = ((Math.round(currentOffset) % N) + N) % N;
     if (activeIndex !== lastActiveRef.current) {
+      // Unhighlight previous center card
+      const prevEl = cardRefs.current[lastActiveRef.current];
+      if (prevEl) {
+        prevEl.style.borderColor = 'rgba(255,255,255,0.08)';
+        prevEl.style.boxShadow = 'none';
+      }
       lastActiveRef.current = activeIndex;
+      // Highlight new center card
+      const nextEl = cardRefs.current[activeIndex];
+      if (nextEl) {
+        nextEl.style.borderColor = 'rgba(255,255,255,0.35)';
+        nextEl.style.boxShadow = '0 0 20px rgba(255,255,255,0.07)';
+      }
       dotRefs.current.forEach((dot, i) => {
         if (!dot) return;
         dot.style.width = i === activeIndex ? '24px' : '12px';
