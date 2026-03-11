@@ -1,6 +1,6 @@
-import { useRef, type CSSProperties } from 'react';
-import { useAnimationFrame } from 'motion/react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useRef, useState, useEffect, type CSSProperties, type MouseEvent } from 'react';
+import { useAnimationFrame, motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight, Star, X } from 'lucide-react';
 
 const REVIEWS = [
   {
@@ -59,6 +59,8 @@ const REVIEWS = [
   },
 ];
 
+type Review = typeof REVIEWS[number];
+
 const N = REVIEWS.length;
 const SPEED = 0.00012; // card-units per ms (~8s per card)
 
@@ -99,6 +101,18 @@ export const ReviewsCarousel = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const lastActiveRef = useRef(0);
+  const [activeReview, setActiveReview] = useState<Review | null>(null);
+
+  useEffect(() => {
+    if (!activeReview) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setActiveReview(null); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [activeReview]);
 
   useAnimationFrame((_, delta) => {
     if (isManualRef.current) {
@@ -111,7 +125,7 @@ export const ReviewsCarousel = () => {
         const lerp = 1 - Math.exp(-delta / 100);
         offsetRef.current += diff * lerp;
       }
-    } else {
+    } else if (!activeReview) {
       offsetRef.current += delta * SPEED;
       targetRef.current = offsetRef.current;
     }
@@ -167,8 +181,9 @@ export const ReviewsCarousel = () => {
           <div
             key={review.id}
             ref={(el) => { cardRefs.current[i] = el; }}
-            className="absolute w-[240px] bg-white/[0.03] border border-white/8 rounded-2xl p-5 will-change-transform select-none"
+            className="absolute w-[240px] bg-white/[0.03] border border-white/8 rounded-2xl p-5 will-change-transform select-none cursor-pointer hover:border-white/20 transition-[border-color]"
             style={getInitialStyle(i)}
+            onClick={() => setActiveReview(review)}
           >
             {/* Stars */}
             <div className="flex gap-0.5 mb-3">
@@ -228,6 +243,56 @@ export const ReviewsCarousel = () => {
           <ChevronRight size={16} />
         </button>
       </div>
+      {/* Full review modal */}
+      <AnimatePresence>
+        {activeReview && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-6"
+            onClick={() => setActiveReview(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-md w-full bg-zinc-900 border border-white/10 rounded-2xl p-8"
+              onClick={(e: MouseEvent) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveReview(null)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white/60 hover:text-white"
+              >
+                <X size={14} />
+              </button>
+
+              <div className="flex gap-0.5 mb-5">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} size={13} fill="#f59e0b" strokeWidth={0} />
+                ))}
+              </div>
+
+              <p className="text-white/75 text-sm leading-relaxed mb-6">{activeReview.text}</p>
+
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
+                  style={{ backgroundColor: activeReview.color }}
+                >
+                  {activeReview.initials}
+                </div>
+                <div>
+                  <p className="text-white/90 text-sm font-medium leading-tight">{activeReview.author}</p>
+                  <p className="text-white/40 text-xs">{activeReview.date}</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
