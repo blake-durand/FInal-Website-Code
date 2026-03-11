@@ -162,23 +162,22 @@ export const ReviewsCarousel = () => {
       </div>
 
       {/* Arc carousel */}
-      <div className="relative h-[400px] flex items-start justify-center">
+      <div className="relative h-[340px] flex items-start justify-center">
         {REVIEWS.map((review, i) => (
           <div
             key={review.id}
             ref={(el) => { cardRefs.current[i] = el; }}
-            className="absolute w-[265px] bg-white/[0.03] border border-white/8 rounded-2xl p-6 will-change-transform select-none"
+            className="absolute w-[240px] bg-white/[0.03] border border-white/8 rounded-2xl p-5 will-change-transform select-none"
             style={getInitialStyle(i)}
           >
             {/* Stars */}
-            <div className="flex gap-0.5 mb-4">
+            <div className="flex gap-0.5 mb-3">
               {[...Array(5)].map((_, j) => (
-                <Star key={j} size={12} fill="#f59e0b" strokeWidth={0} />
+                <Star key={j} size={11} fill="#f59e0b" strokeWidth={0} />
               ))}
             </div>
 
-            <h3 className="font-serif italic text-white text-lg leading-snug mb-2">{review.title}</h3>
-            <p className="text-white/55 text-sm leading-relaxed mb-5 line-clamp-4">{review.text}</p>
+            <p className="text-white/55 text-sm leading-relaxed mb-4 line-clamp-5">{review.text}</p>
 
             <div className="flex items-center gap-3">
               <div
