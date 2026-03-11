@@ -61,6 +61,17 @@ const REVIEWS = [
 
 type Review = typeof REVIEWS[number];
 
+// Airbnb bélo mark — simplified icon version
+const AirbnbBelo = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 2.5C10.07 2.5 8.5 4.07 8.5 6S10.07 9.5 12 9.5 15.5 7.93 15.5 6 13.93 2.5 12 2.5zm0 1.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM6.5 15.5C6.5 12.46 9.02 10 12 10s5.5 2.46 5.5 5.5c0 2.52-2.84 5.64-5.5 7-2.66-1.36-5.5-4.48-5.5-7zm5.5-4c-1.93 0-3.5 1.57-3.5 3.5 0 1.5 2.1 4.1 3.5 5.2 1.4-1.1 3.5-3.7 3.5-5.2 0-1.93-1.57-3.5-3.5-3.5zm0 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"
+    />
+  </svg>
+);
+
 const N = REVIEWS.length;
 const SPEED = 0.00012; // card-units per ms (~8s per card)
 
@@ -207,11 +218,8 @@ export const ReviewsCarousel = () => {
             <p className="text-white/55 text-sm leading-relaxed mb-4 line-clamp-5">{review.text}</p>
 
             <div className="flex items-center gap-3">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
-                style={{ backgroundColor: review.color }}
-              >
-                {review.initials}
+              <div className="w-8 h-8 rounded-full bg-[#FF5A5F] flex items-center justify-center flex-shrink-0">
+                <AirbnbBelo size={16} />
               </div>
               <div>
                 <p className="text-white/90 text-sm font-medium leading-tight">{review.author}</p>
@@ -290,11 +298,8 @@ export const ReviewsCarousel = () => {
               <p className="text-white/75 text-sm leading-relaxed mb-6">{activeReview.text}</p>
 
               <div className="flex items-center gap-3">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
-                  style={{ backgroundColor: activeReview.color }}
-                >
-                  {activeReview.initials}
+                <div className="w-9 h-9 rounded-full bg-[#FF5A5F] flex items-center justify-center flex-shrink-0">
+                  <AirbnbBelo size={18} />
                 </div>
                 <div>
                   <p className="text-white/90 text-sm font-medium leading-tight">{activeReview.author}</p>
