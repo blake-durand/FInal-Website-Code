@@ -6,13 +6,18 @@ import { BorderBeam } from './Effects';
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background video with overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/hero.jpg"
-          alt="Ocean landscape"
+        <video
           className="w-full h-full object-cover opacity-50"
-          referrerPolicy="no-referrer"
+          src="/hero-video.mp4"
+          poster="/hero.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-[#0A0A0A]" />
       </div>
