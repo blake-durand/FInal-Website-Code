@@ -1,4 +1,7 @@
 import { Hero } from '../components/Hero';
+import { Features } from '../components/Features';
+import { Portfolio } from '../components/Portfolio';
+import { ReviewsCarousel } from '../components/ReviewsCarousel';
 import { motion } from 'motion/react';
 
 export const Home = () => {
@@ -9,6 +12,9 @@ export const Home = () => {
       exit={{ opacity: 0 }}
     >
       <Hero />
+      <Features />
+      <Portfolio />
+      <ReviewsCarousel />
     </motion.main>
   );
 };

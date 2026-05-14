@@ -61,7 +61,7 @@ const REVIEWS = [
 
 type Review = typeof REVIEWS[number];
 
-const AVATAR_COLORS = ['#404040', '#525252', '#737373', '#a3a3a3', '#d4d4d4', '#e5e5e5'];
+const AVATAR_COLORS = ["#6366f1","#ec4899","#f59e0b","#10b981","#3b82f6","#ef4444"];
 
 const N = REVIEWS.length;
 const SPEED = 0.00012; // card-units per ms (~8s per card)
@@ -180,14 +180,12 @@ export const ReviewsCarousel = () => {
   };
 
   return (
-    <section className="relative py-24 md:py-36 bg-brand-dark overflow-x-hidden border-t border-white/[0.05]">
+    <section className="relative py-20 md:py-32 bg-[#0A0A0A] overflow-x-hidden">
       {/* Heading */}
       <div className="text-center mb-20 px-6">
-        <span className="text-[10px] uppercase tracking-[0.35em] text-white/35 mb-4 block">
-          Airbnb Reviews
-        </span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-4 block">Airbnb Reviews</span>
         <h2 className="text-3xl md:text-5xl font-serif italic">
-          What guests <span className="text-white/35 not-italic font-normal">are saying.</span>
+          What Guests <span className="text-white/40">Are Saying.</span>
         </h2>
       </div>
 
@@ -204,7 +202,7 @@ export const ReviewsCarousel = () => {
             {/* Stars */}
             <div className="flex gap-0.5 mb-3">
               {[...Array(5)].map((_, j) => (
-                <Star key={j} size={11} fill="#ffffff" strokeWidth={0} />
+                <Star key={j} size={11} fill="#f59e0b" strokeWidth={0} />
               ))}
             </div>
 
@@ -287,7 +285,7 @@ export const ReviewsCarousel = () => {
 
               <div className="flex gap-0.5 mb-5">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={13} fill="#ffffff" strokeWidth={0} />
+                  <Star key={j} size={13} fill="#f59e0b" strokeWidth={0} />
                 ))}
               </div>
 

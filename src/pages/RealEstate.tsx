@@ -191,7 +191,7 @@ export const RealEstate = () => {
                         <img
                           src={listing.image}
                           alt={listing.title}
-                          className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end justify-start p-4">
                           <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[9px] uppercase tracking-widest text-white/90 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -200,7 +200,7 @@ export const RealEstate = () => {
                         </div>
                       </button>
                     ) : listing.comingSoon ? (
-                      <div className="w-full h-full bg-black flex items-center justify-center border-b border-white/5">
+                      <div className="w-full h-full bg-[#0A0A0A] flex items-center justify-center border-b border-white/5">
                         <span className="font-serif italic text-3xl select-none">
                           Coming <span className="text-white/30">Soon.</span>
                         </span>
@@ -209,7 +209,7 @@ export const RealEstate = () => {
                       <img
                         src={listing.image}
                         alt={listing.title}
-                        className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         referrerPolicy="no-referrer"
                       />
                     )}
@@ -232,7 +232,7 @@ export const RealEstate = () => {
                       </div>
                       {!listing.comingSoon && (
                         <div className="flex items-center gap-1 text-white/60 text-xs">
-                          <Star size={12} className="text-white fill-white" />
+                          <Star size={12} className="text-brand-gold fill-brand-gold" />
                           {listing.rating}
                         </div>
                       )}
@@ -284,7 +284,7 @@ export const RealEstate = () => {
                 <img
                   src={city.image}
                   alt={city.name}
-                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:via-black/40 transition-colors duration-500" />
@@ -308,9 +308,9 @@ export const RealEstate = () => {
               I leverage my media production background to create cinematic property tours and high-impact social campaigns that reach buyers where they are.
             </p>
             <ul className="space-y-4 text-sm text-white/60">
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Professional Staging & Media</li>
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Targeted Digital Advertising</li>
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Expert Negotiation</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Professional Staging & Media</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Targeted Digital Advertising</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Expert Negotiation</li>
             </ul>
           </div>
 
@@ -321,9 +321,9 @@ export const RealEstate = () => {
               Specializing in short-term rental acquisitions. I analyze the data to find properties with the highest ROI potential in the Airbnb market.
             </p>
             <ul className="space-y-4 text-sm text-white/60">
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Market Yield Analysis</li>
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Full-Service Management</li>
-              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-white/70" /> Guest Experience Design</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Market Yield Analysis</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Full-Service Management</li>
+              <li className="flex items-center gap-3"><ShieldCheck size={16} className="text-emerald-400" /> Guest Experience Design</li>
             </ul>
           </div>
         </div>

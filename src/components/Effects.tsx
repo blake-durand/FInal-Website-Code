@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useSpring, useTransform } from 'motion/react';
 import { cn } from '../lib/utils';
 
@@ -41,13 +41,11 @@ export const CursorProximity = ({ children, className, radius = 200 }: CursorPro
   );
 };
 
-type BorderBeamProps = { className?: string };
-
-export const BorderBeam = ({ className }: BorderBeamProps) => {
+export const BorderBeam = ({ className }: { className?: string }) => {
   return (
     <div className={cn("pointer-events-none absolute inset-0 rounded-[inherit] border border-white/10", className)}>
       <div className="absolute inset-0 rounded-[inherit] [mask-image:linear-gradient(white,transparent)]">
-        <div className="absolute inset-0 animate-border-beam [offset-path:rect(0_100%_100%_0_round_inherit)] [offset-anchor:50%_50%] w-[100px] h-[2px] bg-gradient-to-r from-transparent via-white/55 to-transparent" />
+        <div className="absolute inset-0 animate-border-beam [offset-path:rect(0_100%_100%_0_round_inherit)] [offset-anchor:50%_50%] w-[100px] h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
       </div>
     </div>
   );
