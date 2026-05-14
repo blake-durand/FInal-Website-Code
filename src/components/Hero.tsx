@@ -36,23 +36,29 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center gap-5"
         >
-          <Link
-            to="/contact"
-            className="group relative px-8 py-4 rounded-full bg-white text-black font-bold uppercase tracking-widest text-xs overflow-hidden transition-transform hover:scale-105"
-          >
-            <BorderBeam className="opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative z-10 flex items-center gap-2">
-              Work with me <ArrowRight size={14} />
-            </span>
-          </Link>
-          <Link
-            to="/real-estate"
-            className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
-          >
-            View Real Estate
-          </Link>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/55 md:text-[13px]">
+            Work with me in:
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Link
+              to="/media"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold uppercase tracking-widest text-xs overflow-hidden transition-transform hover:scale-105"
+            >
+              <BorderBeam className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Media production <ArrowRight size={14} />
+              </span>
+            </Link>
+            <Link
+              to="/real-estate"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
+            >
+              Real estate
+              <ArrowRight size={14} aria-hidden />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
