@@ -27,9 +27,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-14 leading-[1.15]"
+          className="home-hero-headline text-balance text-3xl font-normal tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-14 leading-[1.18]"
         >
-          Premium production for the businesses building LA
+          Premium production for the businesses building Los&nbsp;Angeles
         </motion.h1>
 
         <motion.div

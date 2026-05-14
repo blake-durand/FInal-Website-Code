@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
+/* Foglighten = Foglihten (GLUK, SIL OFL). Reserved for home hero headline only — see components/Hero.tsx */
+@font-face {
+  font-family: "Foglihten";
+  src: url("/fonts/Foglihten.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
-  
+
   --color-brand-gold: #D4AF37;
   --color-brand-dark: #0A0A0A;
 }
@@ -12,6 +21,13 @@
 @layer base {
   body {
     @apply bg-[#0A0A0A] text-white font-sans antialiased selection:bg-white/20;
+  }
+}
+
+@layer components {
+  /* Home hero only — do not reuse on other routes until you add more @font-face weights */
+  .home-hero-headline {
+    font-family: "Foglihten", "Playfair Display", Georgia, ui-serif, serif;
   }
 }
 
