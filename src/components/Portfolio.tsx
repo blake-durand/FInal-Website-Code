@@ -152,14 +152,22 @@ export const Portfolio = () => {
   }, [activePhotos, close, prev, next]);
 
   return (
-    <section className="py-12 md:py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-16 md:py-24 px-6 bg-gradient-to-b from-brand-dark via-brand-elevated/30 to-brand-dark overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" aria-hidden />
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-4 block">Proof of Work</span>
-            <h2 className="text-3xl md:text-6xl font-serif italic">Selected <span className="text-white/40">Portfolio.</span></h2>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-white/35 mb-4 block">Proof of Work</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic leading-tight">
+              Selected{' '}
+              <span className="text-white/35 not-italic font-normal">portfolio.</span>
+            </h2>
           </div>
-          <Link to="/media" className="text-xs uppercase tracking-widest font-bold text-white/60 hover:text-white transition-colors border-b border-white/20 pb-2">
+          <Link
+            to="/media"
+            className="text-xs uppercase tracking-[0.2em] font-bold text-white/55 hover:text-white transition-colors border-b border-white/25 pb-2"
+          >
             View All Work
           </Link>
         </div>
@@ -175,7 +183,7 @@ export const Portfolio = () => {
               className="group"
             >
               <div
-                className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 cursor-pointer"
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 cursor-pointer ring-1 ring-white/[0.07] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.85)] transition-[box-shadow,ring-color] duration-500 group-hover:ring-white/25"
                 onClick={item.videoUrl ? () => setActiveVideo(item.videoUrl!) : undefined}
               >
                 {item.videoUrl ? (
@@ -185,13 +193,13 @@ export const Portfolio = () => {
                     autoPlay
                     loop
                     playsInline
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
                   <img
                     src={item.image!}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
                 )}
@@ -241,7 +249,7 @@ export const Portfolio = () => {
               src={activeVideo}
               controls
               autoPlay
-              className="max-h-[85vh] max-w-[90vw] rounded-xl"
+              className="max-h-[85vh] max-w-[90vw] rounded-xl grayscale"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
@@ -291,7 +299,7 @@ export const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2 }}
-              className="w-[calc(100vw-32px)] md:max-w-[calc(100vw-120px)] max-h-[calc(100vh-160px)] object-contain rounded-lg shadow-2xl"
+              className="w-[calc(100vw-32px)] md:max-w-[calc(100vw-120px)] max-h-[calc(100vh-160px)] object-contain rounded-lg shadow-2xl grayscale"
               onClick={e => e.stopPropagation()}
             />
 

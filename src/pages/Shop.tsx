@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowRight, Lock, X, Eye, EyeOff } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { BorderBeam } from '../components/Effects';
+
 
 const products = [
   {
@@ -76,7 +75,7 @@ export const Shop = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 right-4">
@@ -170,7 +169,7 @@ export const Shop = () => {
               </div>
 
               {error && (
-                <p className="text-red-400/80 text-xs mb-4 tracking-wide">Incorrect password. Try again.</p>
+            <p className="text-white/45 text-xs mb-4 tracking-wide">Incorrect password. Try again.</p>
               )}
 
               <button

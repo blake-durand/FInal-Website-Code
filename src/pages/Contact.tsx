@@ -9,8 +9,8 @@ const ContactForm = () => {
   if (state.succeeded) {
     return (
       <div className="p-8 md:p-12 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-sm flex flex-col items-center justify-center text-center gap-6 min-h-[400px]">
-        <div className="w-16 h-16 rounded-full bg-emerald-400/10 flex items-center justify-center">
-          <CheckCircle className="text-emerald-400" size={32} />
+        <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
+          <CheckCircle className="text-white" size={32} strokeWidth={1.25} />
         </div>
         <div>
           <h3 className="text-2xl font-serif italic mb-2">Message sent!</h3>
@@ -36,7 +36,7 @@ const ContactForm = () => {
               className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/30 transition-colors"
               placeholder="John Doe"
             />
-            <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-400 text-xs mt-1 ml-1" />
+            <ValidationError prefix="Name" field="name" errors={state.errors} className="text-white/50 text-xs mt-1 ml-1" />
           </div>
           <div className="space-y-2">
             <label htmlFor="email" className="text-[10px] uppercase tracking-widest text-white/30 ml-1">Email</label>
@@ -48,7 +48,7 @@ const ContactForm = () => {
               className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/30 transition-colors"
               placeholder="john@example.com"
             />
-            <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1 ml-1" />
+            <ValidationError prefix="Email" field="email" errors={state.errors} className="text-white/50 text-xs mt-1 ml-1" />
           </div>
         </div>
 
@@ -76,11 +76,11 @@ const ContactForm = () => {
             className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/30 transition-colors resize-none"
             placeholder="Tell me about your project..."
           />
-          <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1 ml-1" />
+          <ValidationError prefix="Message" field="message" errors={state.errors} className="text-white/50 text-xs mt-1 ml-1" />
         </div>
 
         {hasErrors && (
-          <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+          <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 bg-white/5 text-white/70 text-sm">
             <AlertCircle size={16} className="shrink-0" />
             <span>Something went wrong. Please check your details and try again.</span>
           </div>
@@ -89,7 +89,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={state.submitting}
-          className="group relative w-full py-6 rounded-xl bg-white text-black font-bold uppercase tracking-[0.2em] text-xs overflow-hidden transition-transform active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+          className="group relative w-full py-6 rounded-xl bg-white text-black font-bold uppercase tracking-[0.2em] text-xs overflow-hidden transition-transform active:scale-[0.98] hover:bg-white/90 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           <BorderBeam className="opacity-0 group-hover:opacity-100 transition-opacity" />
           <span className="relative z-10 flex items-center justify-center gap-2">
@@ -112,10 +112,10 @@ export const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 mb-4 block">Get in Touch</span>
-            <h1 className="text-4xl md:text-8xl font-serif italic mb-12 leading-tight">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-white/35 mb-4 block">Get in Touch</span>
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif italic mb-12 leading-[1.05]">
               Let's build <br />
-              <span className="text-white/40">something great.</span>
+              <span className="text-white/38 not-italic font-normal">something great.</span>
             </h1>
 
             <div className="space-y-12">

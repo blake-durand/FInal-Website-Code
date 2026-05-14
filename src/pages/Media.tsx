@@ -168,13 +168,13 @@ export const Media = () => {
                   autoPlay
                   loop
                   playsInline
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
                 />
               ) : (
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
               )}
@@ -209,7 +209,7 @@ export const Media = () => {
               src={activeVideoUrl}
               controls
               autoPlay
-              className="max-h-[85vh] max-w-[90vw] rounded-xl"
+              className="max-h-[85vh] max-w-[90vw] rounded-xl grayscale"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
@@ -255,7 +255,7 @@ export const Media = () => {
               transition={{ duration: 0.2 }}
               src={deeMauiPhotos[currentPhoto]}
               alt={`Dee's Maui Retreat ${currentPhoto + 1}`}
-              className="max-h-[85vh] max-w-[85vw] object-contain rounded-xl"
+              className="max-h-[85vh] max-w-[85vw] object-contain rounded-xl grayscale"
               onClick={(e) => e.stopPropagation()}
             />
 
