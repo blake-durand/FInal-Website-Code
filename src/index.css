@@ -29,6 +29,12 @@
   .home-hero-headline {
     font-family: "Foglihten", "Playfair Display", Georgia, ui-serif, serif;
   }
+
+  /* Dark-mode trick for the cross-origin eXp search embed (cannot style its internals directly).
+     invert + hue-rotate flips the light form to dark while keeping accent colors roughly intact. */
+  .idx-embed-dark {
+    filter: invert(0.92) hue-rotate(180deg) contrast(1.04);
+  }
 }
 
 @layer utilities {

@@ -39,6 +39,7 @@ export const Hero = () => {
             <iframe
               title="Home search"
               src="https://blakedurand.exprealty.com/embed.php"
+              className="idx-embed-dark"
               style={{ width: 280, height: 680 }}
               allowTransparency
               frameBorder={0}
