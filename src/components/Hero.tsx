@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BorderBeam } from './Effects';
+
+/** Matching clear pills — frosted outline, equal width side-by-side on sm+ */
+const ctaClear =
+  'inline-flex flex-1 min-h-[52px] w-full basis-0 items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/20 bg-white/[0.06] text-white backdrop-blur-sm font-bold uppercase tracking-[0.12em] text-[11px] transition-colors hover:border-white/35 hover:bg-white/[0.12] sm:min-h-[54px] sm:tracking-widest sm:text-xs';
 
 export const Hero = () => {
   return (
@@ -38,25 +41,17 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center gap-5"
         >
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/55 md:text-[13px]">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-yellow-400 drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] md:text-[13px]">
             Work with me in:
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              to="/media"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold uppercase tracking-widest text-xs overflow-hidden transition-transform hover:scale-105"
-            >
-              <BorderBeam className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Media production <ArrowRight size={14} />
-              </span>
+          <div className="flex w-full max-w-xl flex-col gap-4 sm:max-w-2xl sm:flex-row">
+            <Link to="/media" className={ctaClear}>
+              Media production
+              <ArrowRight size={14} className="shrink-0" aria-hidden />
             </Link>
-            <Link
-              to="/real-estate"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
-            >
+            <Link to="/real-estate" className={ctaClear}>
               Real estate
-              <ArrowRight size={14} aria-hidden />
+              <ArrowRight size={14} className="shrink-0" aria-hidden />
             </Link>
           </div>
         </motion.div>
