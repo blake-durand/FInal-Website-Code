@@ -24,28 +24,10 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="home-hero-headline text-balance text-3xl font-normal tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl mb-10 md:mb-12 leading-[1.18]"
+          className="home-hero-headline text-balance text-3xl font-normal tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.18]"
         >
           Premium production for the businesses building Los&nbsp;Angeles
         </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-          className="flex justify-center"
-        >
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 p-2 backdrop-blur-sm">
-            <iframe
-              title="Home search"
-              src="https://blakedurand.exprealty.com/embed.php"
-              className="idx-embed-dark"
-              style={{ width: 280, height: 680 }}
-              allowTransparency
-              frameBorder={0}
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
